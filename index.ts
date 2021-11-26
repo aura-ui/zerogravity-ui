@@ -2,7 +2,7 @@ export { Box } from './components/Box'
 export type { BoxProps } from './components/Box'
 
 export { Flex } from './components/Flex'
-export type { FlexProps } from './components/Flex'
+export type { FlexProps, FlexVariants } from './components/Flex'
 
 export { Grid } from './components/Grid'
 export type { GridProps } from './components/Grid'

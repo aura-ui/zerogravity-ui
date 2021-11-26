@@ -12,72 +12,7 @@ export type {
 } from '@stitches/react'
 import type * as Stitches from '@stitches/react'
 
-import {
-  // light mode - neutrals
-  gray,
-  mauve,
-  slate,
-  sage,
-  olive,
-  sand,
-  // dark mode - neutrals
-  grayDark,
-  mauveDark,
-  slateDark,
-  sageDark,
-  oliveDark,
-  sandDark,
-  // light mode - colors for white text
-  tomato,
-  red,
-  crimson,
-  pink,
-  plum,
-  purple,
-  violet,
-  indigo,
-  blue,
-  cyan,
-  teal,
-  green,
-  grass,
-  brown,
-  orange,
-  // dark mode - colors for white text
-  tomatoDark,
-  redDark,
-  crimsonDark,
-  pinkDark,
-  plumDark,
-  purpleDark,
-  violetDark,
-  indigoDark,
-  blueDark,
-  cyanDark,
-  tealDark,
-  greenDark,
-  grassDark,
-  brownDark,
-  orangeDark,
-  // light mode - colors for black text
-  sky,
-  mint,
-  lime,
-  yellow,
-  amber,
-  // dark mode - colors for black text
-  skyDark,
-  mintDark,
-  limeDark,
-  yellowDark,
-  amberDark,
-  // metals - light
-  gold,
-  bronze,
-  // metals - dark
-  goldDark,
-  bronzeDark,
-} from '@radix-ui/colors'
+import { slate, slateDark } from '@radix-ui/colors'
 
 const spacing = {
   1: '0.25rem',
@@ -114,39 +49,23 @@ const spacing = {
 export const { styled, css, config } = createStitches({
   theme: {
     colors: {
-      ...gray,
-      ...mauve,
       ...slate,
-      ...sage,
-      ...olive,
-      ...sand,
-      ...tomato,
-      ...red,
-      ...crimson,
-      ...pink,
-      ...plum,
-      ...purple,
-      ...violet,
-      ...indigo,
-      ...blue,
-      ...cyan,
-      ...teal,
-      ...green,
-      ...grass,
-      ...brown,
-      ...orange,
-      ...sky,
-      ...mint,
-      ...lime,
-      ...yellow,
-      ...amber,
-      ...gold,
-      ...bronze,
 
       //ds colors
+      appBg: slate.slate1,
+      bgSubtle: slate.slate2,
+      bg: slate.slate3,
+      bgHover: slate.slate4,
+      bgActive: slate.slate5,
+      separator: slate.slate6,
+      subtleBorder: slate.slate6,
+      border: slate.slate7,
+      focus: slate.slate7,
+      borderHover: slate.slate8,
+      solid: slate.slate9,
+      solidHover: slate.slate10,
       hiContrast: slate.slate12,
       loContrast: slate.slate11,
-      AppBg: slate.slate1,
     },
     fonts: {
       body: '-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
@@ -298,7 +217,7 @@ export const { styled, css, config } = createStitches({
     bg: (value: PropertyValue<'backgroundColor'>) => ({
       backgroundColor: value,
     }),
-    br: (value: ScaleValue<'radii'>) => ({
+    br: (value: PropertyValue<'borderRadius'>) => ({
       borderRadius: value,
     }),
     btrr: (value: ScaleValue<'radii'>) => ({
@@ -320,39 +239,23 @@ export const { styled, css, config } = createStitches({
 
 const darkModeConfig = {
   colors: {
-    ...grayDark,
-    ...mauveDark,
     ...slateDark,
-    ...sageDark,
-    ...oliveDark,
-    ...sandDark,
-    ...tomatoDark,
-    ...redDark,
-    ...crimsonDark,
-    ...pinkDark,
-    ...plumDark,
-    ...purpleDark,
-    ...violetDark,
-    ...indigoDark,
-    ...blueDark,
-    ...cyanDark,
-    ...tealDark,
-    ...greenDark,
-    ...grassDark,
-    ...brownDark,
-    ...orangeDark,
-    ...skyDark,
-    ...mintDark,
-    ...limeDark,
-    ...yellowDark,
-    ...amberDark,
-    ...goldDark,
-    ...bronzeDark,
 
     //ds colors
+    appBg: slateDark.slate1,
+    bgSubtle: slateDark.slate2,
+    bg: slateDark.slate3,
+    bgHover: slateDark.slate4,
+    bgActive: slateDark.slate5,
+    separator: slateDark.slate6,
+    subtleBorder: slateDark.slate6,
+    border: slateDark.slate7,
+    focus: slateDark.slate7,
+    borderHover: slateDark.slate8,
+    solid: slateDark.slate9,
+    solidHover: slateDark.slate10,
     hiContrast: slateDark.slate12,
     loContrast: slateDark.slate11,
-    AppBg: slateDark.slate1,
   },
 }
 
