@@ -1,4 +1,4 @@
-import { styled, ComponentProps } from '../stitches.config'
+import { styled, ComponentProps } from '../../stitches.config'
 
 export type GridProps = ComponentProps<typeof Grid>
 

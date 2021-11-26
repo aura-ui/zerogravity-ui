@@ -1,11 +1,16 @@
-import { css, styled, ComponentProps, VariantProps } from '../stitches.config'
+import {
+  css,
+  styled,
+  ComponentProps,
+  VariantProps,
+} from '../../stitches.config'
 
 export type HeadingProps = ComponentProps<typeof Heading>
 export type HeadingVariants = VariantProps<typeof Heading>
 
 export const heading = css({
   fontFamily: '$body',
-  fontWeight: 'normal',
+  fontWeight: '$bold',
   color: '$hiContrast',
 
   variants: {
