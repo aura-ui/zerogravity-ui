@@ -1,7 +1,15 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "paths": {
-      "@emotion/core": ["./types/emotion.d.ts"]
+      "@emotion/core": ["types/emotion.d.ts"],
+      "@/components/*": ["components/*"],
+      "@/styles/*": ["styles/*"],
+      "@/utils/*": ["utils/*"],
+      "@/icons/*": ["icons/*"],
+      "@/data/*": ["data/*"],
+      "@/pages/*": ["pages/*"],
+      "@/lib/*": ["lib/*"]
     },
     "target": "es5",
     "outDir": "dist",
