@@ -1,7 +1,6 @@
 import { defaultColors } from '@/styles/colors'
 import { resets } from '@/styles/resets/button'
-import { slate, violet } from '@radix-ui/colors'
-import { FC } from 'react'
+import { slate } from '@radix-ui/colors'
 import { styled, ComponentProps, VariantProps } from '../../stitches.config'
 
 export type ButtonBaseProps = ComponentProps<typeof ButtonBase>
