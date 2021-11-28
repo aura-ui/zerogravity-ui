@@ -1,10 +1,11 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta, Story } from '@storybook/react'
-import { Button } from './index'
+import { IconButton, IconButtonProps } from './index'
+import { MagnifyingGlassIcon } from '@radix-ui/react-icons'
 
 export default {
-  title: 'Components/Form/Button',
-  component: Button,
+  title: 'Components/Form/IconButton',
+  component: IconButton,
   argTypes: {
     size: {
       options: ['xs', 'sm', 'md', 'lg'],
@@ -18,13 +19,16 @@ export default {
   args: {
     disabled: false,
   },
-} as ComponentMeta<typeof Button>
+} as ComponentMeta<typeof IconButton>
 
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />
+const Template: ComponentStory<typeof IconButton> = (args) => (
+  <IconButton {...args} />
+)
 
 const Default = Template.bind({})
 Default.args = {
-  children: 'Sign up',
+  icon: <MagnifyingGlassIcon />,
+  label: 'Search',
 }
 
 export const Subtle = Template.bind({})

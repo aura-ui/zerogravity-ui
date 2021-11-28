@@ -1,83 +1,52 @@
+import { defaultColors } from '@/styles/colors'
+import { resets } from '@/styles/resets/button'
 import { slate, violet } from '@radix-ui/colors'
+import { FC } from 'react'
 import { styled, ComponentProps, VariantProps } from '../../stitches.config'
 
 export type ButtonBaseProps = ComponentProps<typeof ButtonBase>
 export type ButtonVariants = VariantProps<typeof ButtonBase>
 
 const ButtonBase = styled('button', {
-  // resets
-  cursor: 'pointer',
-  border: 0,
-  padding: 0,
-  margin: 0,
-  outline: 'none',
-  textDecoration: 'none',
-  alignItems: 'center',
-  appearance: 'none',
-  boxSizing: 'border-box',
-  display: 'inline-flex',
-  userSelect: 'none',
-  WebkitTapHighlightColor: 'rgba(0,0,0,0)',
-  fontFamily: 'inherit',
-  fontWeight: '$medium',
-  lineHeight: 1,
-
-  '::before': {
-    boxSizing: 'border-box',
-  },
-  '::after': {
-    boxSizing: 'border-box',
-  },
+  ...resets,
 
   // overridable locally scoped tokens
-  $$bg: '$colors$bg',
-  $$border: '$colors$border',
-  $$bgHover: '$colors$bgHover',
-  $$bgActive: '$colors$bgActive',
-  $$borderHover: '$colors$borderHover',
-  $$solid: '$colors$solid',
-  $$solidHover: '$colors$solidHover',
-  $$text: '$colors$loContrast',
-  $$textHiContrast: '$colors$hiContrast',
+  ...defaultColors,
 
-  color: '$$text',
+  color: defaultColors.$$text,
+
+  '&:disabled': {
+    pointerEvents: 'none',
+    opacity: '50%',
+    cursor: 'not-allowed',
+  },
 
   variants: {
     variant: {
       subtle: {
         bg: '$$bg',
-        boxShadow: '0 0 0 1px $$border',
+        boxShadow: 'inset 0 0 0 1px $$border',
 
         '&:hover': {
           bg: '$$bgHover',
-          boxShadow: '0 0 0 1px $$borderHover',
+          boxShadow: 'inset 0 0 0 1px $$borderHover',
         },
 
         '&:active': {
           bg: '$$bgActive',
-        },
-
-        '&:disabled': {
-          opacity: '50%',
-          cursor: 'not-allowed',
         },
       },
       outline: {
         bg: 'transparent',
-        boxShadow: '0 0 0 1px $$border',
+        boxShadow: 'inset 0 0 0 1px $$border',
 
         '&:hover': {
           bg: '$$bgHover',
-          boxShadow: '0 0 0 1px $$borderHover',
+          boxShadow: 'inset 0 0 0 1px $$borderHover',
         },
 
         '&:active': {
           bg: '$$bgActive',
-        },
-
-        '&:disabled': {
-          opacity: '50%',
-          cursor: 'not-allowed',
         },
       },
       ghost: {
@@ -91,11 +60,6 @@ const ButtonBase = styled('button', {
         '&:active': {
           bg: '$$bgActive',
         },
-
-        '&:disabled': {
-          opacity: '50%',
-          cursor: 'not-allowed',
-        },
       },
       solid: {
         bg: '$$solid',
@@ -103,11 +67,6 @@ const ButtonBase = styled('button', {
 
         '&:hover': {
           bg: '$$solidHover',
-        },
-
-        '&:disabled': {
-          opacity: '50%',
-          cursor: 'not-allowed',
         },
       },
     },

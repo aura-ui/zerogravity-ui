@@ -14,7 +14,7 @@ export const text = css({
   color: '$hiContrast',
 
   variants: {
-    fontSize: {
+    size: {
       xs: {
         fontSize: '$xs',
         lineHeight: '$xs',
@@ -59,7 +59,7 @@ export const text = css({
   },
 
   defaultVariants: {
-    fontSize: 'md',
+    size: 'md',
   },
 })
 
