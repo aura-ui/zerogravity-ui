@@ -116,7 +116,7 @@ export const { styled, css, config } = createStitches({
       xs: '2px',
       sm: '4px',
       md: '8px',
-      lg: '24px',
+      lg: '16px',
       full: '9999px',
     },
     zIndices: {
@@ -154,6 +154,7 @@ export const { styled, css, config } = createStitches({
     },
   },
   media: {
+    light: '(prefers-color-scheme: light)',
     dark: '(prefers-color-scheme: dark)',
     bp1: '(min-width: 280px)',
     bp2: '(min-width: 768px)',
@@ -234,6 +235,10 @@ export const { styled, css, config } = createStitches({
     }),
     ox: (value: PropertyValue<'overflowX'>) => ({ overflowX: value }),
     oy: (value: PropertyValue<'overflowY'>) => ({ overflowY: value }),
+    boxSize: (value: PropertyValue<'width'>) => ({
+      width: value,
+      height: value,
+    }),
   },
 })
 
@@ -259,5 +264,5 @@ const darkModeConfig = {
   },
 }
 
-export const darkTheme = createTheme('darkTheme', darkModeConfig)
+export const darkTheme = createTheme('dark-theme', darkModeConfig)
 export type ThemeCSS = Stitches.CSS<typeof config>
