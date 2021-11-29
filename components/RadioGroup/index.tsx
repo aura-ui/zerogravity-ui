@@ -1,10 +1,10 @@
 import React from 'react'
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group'
-import { styled, ComponentProps, VariantProps } from 'stitches.config'
+import { styled, ComponentProps, VariantProps, ThemeCSS } from 'stitches.config'
 import { defaultColors } from '@/styles/colors'
 import { Text } from '../Text'
 import { Flex } from '../Flex'
-import * as Label from '@radix-ui/react-label'
+import * as LabelPrimitive from '@radix-ui/react-label'
 import { blue } from '@radix-ui/colors'
 
 type RadioGroupRoot = ComponentProps<typeof RadioGroupPrimitive.Root>
@@ -107,6 +107,8 @@ const StyledIndicator = styled(RadioGroupPrimitive.Indicator, {
   },
 })
 
+const Label = styled(LabelPrimitive.Root)
+
 export interface RadioProps extends StyledRadioProps, StyledRadioVariants {
   /**
    * The controlled value of the radio item to check.
@@ -135,6 +137,11 @@ export interface RadioProps extends StyledRadioProps, StyledRadioVariants {
    * Adjust the spacing between the radio button and its label
    */
   gap?: string
+
+  /**
+   * Custom CSS for the radio label
+   */
+  labelStyles?: ThemeCSS
 }
 
 export const Radio = ({
@@ -144,6 +151,7 @@ export const Radio = ({
   indicatorColor,
   children,
   gap,
+  labelStyles,
   ...props
 }: RadioProps) => {
   return (
@@ -158,7 +166,9 @@ export const Radio = ({
           }}
         />
       </StyledRadio>
-      <Label.Root htmlFor={id}>{children}</Label.Root>
+      <Label css={{ ...labelStyles }} htmlFor={id}>
+        {children}
+      </Label>
     </Flex>
   )
 }
