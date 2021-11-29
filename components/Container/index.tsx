@@ -8,9 +8,16 @@ import {
 export type ContainerProps = ComponentProps<typeof Container>
 export type ContainerVariants = VariantProps<typeof Container>
 
-const Container = styled('div', {
+export const Container = styled('div', {
+  '& div, p': {
+    mx: 'auto',
+  },
+
   variants: {
-    maxW: {
+    maxWidth: {
+      default: {
+        maxWidth: '60ch',
+      },
       xs: {
         maxWidth: '$xs',
       },
@@ -45,5 +52,9 @@ const Container = styled('div', {
         placeItems: 'center',
       },
     },
+  },
+
+  defaultVariants: {
+    maxWidth: 'default',
   },
 })
