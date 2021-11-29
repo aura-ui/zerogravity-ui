@@ -5,7 +5,7 @@ import { defaultColors } from '@/styles/colors'
 import { Text } from '../Text'
 import { Flex } from '../Flex'
 import * as LabelPrimitive from '@radix-ui/react-label'
-import { blue } from '@radix-ui/colors'
+import { blue, slate } from '@radix-ui/colors'
 
 type RadioGroupRoot = ComponentProps<typeof RadioGroupPrimitive.Root>
 
@@ -34,7 +34,7 @@ export const RadioGroup = ({ label, gap, children }: RadioGroupProps) => {
   )
 }
 
-type StyledRadioProps = ComponentProps<typeof StyledRadio>
+type RadioBaseProps = ComponentProps<typeof RadioGroupPrimitive.Item>
 type StyledRadioVariants = VariantProps<typeof StyledRadio>
 
 const StyledRadio = styled(RadioGroupPrimitive.Item, {
@@ -43,14 +43,26 @@ const StyledRadio = styled(RadioGroupPrimitive.Item, {
   ...defaultColors,
 
   br: '$full',
-  bg: 'transparent',
-  boxShadow: `inset 0 0 1px ${defaultColors.$$borderHover}`,
-
-  '&:hover': {
-    bg: defaultColors.$$bgHover,
-  },
+  boxShadow: `0 0 0 1px ${defaultColors.$$border}`,
 
   variants: {
+    variant: {
+      outline: {
+        bg: 'transparent',
+
+        '&:hover': {
+          bg: defaultColors.$$bgHover,
+        },
+      },
+      solid: {
+        bg: slate.slate2,
+
+        '&:hover': {
+          bg: slate.slate4,
+        },
+      },
+    },
+
     size: {
       sm: {
         boxSize: '$3',
@@ -62,9 +74,53 @@ const StyledRadio = styled(RadioGroupPrimitive.Item, {
         boxSize: '$5',
       },
     },
+
+    colorScheme: {
+      blue: {
+        // '&[aria-checked="true"]': {
+        //   bg: blue.blue9,
+        // },
+        // '& span': {
+        //   '&::after': {
+        //     bg: slate.slate1,
+        //   },
+        // },
+      },
+    },
   },
 
+  compoundVariants: [
+    {
+      colorScheme: 'blue',
+      variant: 'outline',
+      css: {
+        boxShadow: `0 0 0 1px ${blue.blue9}`,
+        '& span': {
+          '&::after': {
+            bg: blue.blue9,
+          },
+        },
+      },
+    },
+    {
+      colorScheme: 'blue',
+      variant: 'solid',
+      css: {
+        '&[aria-checked="true"]': {
+          bg: blue.blue9,
+        },
+
+        '& span': {
+          '&::after': {
+            bg: slate.slate1,
+          },
+        },
+      },
+    },
+  ],
+
   defaultVariants: {
+    variant: 'outline',
     size: 'md',
   },
 })
@@ -109,7 +165,7 @@ const StyledIndicator = styled(RadioGroupPrimitive.Indicator, {
 
 const Label = styled(LabelPrimitive.Root)
 
-export interface RadioProps extends StyledRadioProps, StyledRadioVariants {
+export interface RadioProps extends StyledRadioVariants, RadioBaseProps {
   /**
    * The controlled value of the radio item to check.
    * Should be used in conjunction with onValueChange.

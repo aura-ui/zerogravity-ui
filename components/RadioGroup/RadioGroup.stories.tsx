@@ -1,7 +1,6 @@
 import React from 'react'
-import { ComponentStory, ComponentMeta, Story } from '@storybook/react'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { Radio, RadioGroup } from './index'
-import { violet } from '@radix-ui/colors'
 
 export default {
   title: 'Components/Form/RadioGroup',
@@ -34,6 +33,78 @@ Default.args = {
         Comfortable
       </Radio>
       <Radio size="lg" gap="$3" value="compact">
+        Compact
+      </Radio>
+    </>
+  ),
+}
+
+export const Solid = Template.bind({})
+Solid.args = {
+  gap: '$2',
+  children: (
+    <>
+      <Radio variant="solid" size="lg" gap="$3" value="default">
+        Default
+      </Radio>
+      <Radio variant="solid" size="lg" gap="$3" value="comfortable">
+        Comfortable
+      </Radio>
+      <Radio variant="solid" size="lg" gap="$3" value="compact">
+        Compact
+      </Radio>
+    </>
+  ),
+}
+
+export const defaultWithColorScheme = Template.bind({})
+defaultWithColorScheme.args = {
+  gap: '$2',
+  children: (
+    <>
+      <Radio colorScheme="blue" size="lg" gap="$3" value="default">
+        Default
+      </Radio>
+      <Radio colorScheme="blue" size="lg" gap="$3" value="comfortable">
+        Comfortable
+      </Radio>
+      <Radio colorScheme="blue" size="lg" gap="$3" value="compact">
+        Compact
+      </Radio>
+    </>
+  ),
+}
+
+export const solidWithColorScheme = Template.bind({})
+solidWithColorScheme.args = {
+  gap: '$2',
+  children: (
+    <>
+      <Radio
+        colorScheme="blue"
+        variant="solid"
+        size="lg"
+        gap="$3"
+        value="default"
+      >
+        Default
+      </Radio>
+      <Radio
+        colorScheme="blue"
+        variant="solid"
+        size="lg"
+        gap="$3"
+        value="comfortable"
+      >
+        Comfortable
+      </Radio>
+      <Radio
+        colorScheme="blue"
+        variant="solid"
+        size="lg"
+        gap="$3"
+        value="compact"
+      >
         Compact
       </Radio>
     </>
