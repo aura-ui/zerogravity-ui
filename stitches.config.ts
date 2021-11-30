@@ -1,9 +1,4 @@
-import {
-  createStitches,
-  PropertyValue,
-  ScaleValue,
-  createTheme,
-} from '@stitches/react'
+import { createStitches, PropertyValue, ScaleValue } from '@stitches/react'
 export type {
   ComponentProps,
   VariantProps,
@@ -46,7 +41,17 @@ const spacing = {
   96: '24rem',
 }
 
-export const { styled, css, config } = createStitches({
+export const {
+  styled,
+  css,
+  config,
+  theme,
+  createTheme,
+  reset,
+  getCssText,
+  globalCss,
+  keyframes,
+} = createStitches({
   theme: {
     colors: {
       ...slate,
